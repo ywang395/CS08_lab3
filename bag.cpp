@@ -64,16 +64,44 @@ bag::~bag()
 //=================================
 //5.
 
-bool bag::erase(const value_type& target)
+bool bag::erase(const value_type& target) // tested 
 {
     //PRE :: use shift-left function
     //POST :: delete all the target
+    value_type* w = data;
+    value_type* end = data + used;
+
+    while(w != end)
+    {
+        if (*w == target)
+        {
+            shift_left(w);
+        }
+        else
+        {
+        w++;
+        }
+    }
 }
 
-bool bag::erase_one(const value_type& target)
+bool bag::erase_one(const value_type& target) // tested
 {
-
+    value_type* w = data;
+    value_type* end = data + used;
+    while(w != end)
+    {
+        if (*w == target)
+        {
+            shift_left(w);
+            return true;
+        }
+        else
+        {
+        w++;
+        }
+    }
 }
+
 //================================= //helper =================================
 
 //helper
@@ -92,17 +120,23 @@ void bag::copy_array (value_type* dest,const value_type* src,size_type how_many_
     }
 }
 
-void bag::shift_left (value_type* position,size_type& used)
+//precondition : take the address of where you want to shift left
+//post         : shift left at that position decre used by one ;
+
+void bag::shift_left (value_type* position)
 {
+
     value_type *w = position;
-    value_type *end_w = w + used + 1;
+    value_type *end_w = data + used;
+    value_type *w2 = w + 1 ;
 
     while (w != end_w)
     {
-        value_type *w2 = w + 1 ;
-        *w = *w;
+        *w = *w2;
         w++;
+        w2++;
     }
+    used--;
 }
 
 //================================= end =================================

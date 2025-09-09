@@ -23,6 +23,7 @@ bag& operator= (const bag& otherClass); // assignment operator]
 
 size_type getCapacity(){return capacity;}
 size_type getSize(){return used;}
+value_type* getData(){return data;}
 
 //=================================
 
@@ -32,7 +33,7 @@ size_type getSize(){return used;}
 bool erase(const value_type& target); // remove all 'target' from the bag //need shift left function
 bool erase_one(const value_type& target); // remove one 'target' from the bag
 // 6. 'insert' member function
-void insert(const value_type& entry); // insert entry into the bag
+void insert(const value_type& entry); // insert entry into the bag - done
 
 
 
@@ -63,7 +64,7 @@ friend std::ostream& operator<< (std::ostream& os,const bag& yourBag)
 // You may add more member functions, if needed.
 
 void copy_array (value_type* dest,const value_type* src,size_type size) ;
-void shift_left (value_type* my_array,size_type& new_used);
+void shift_left (value_type* my_array);
 private:
 value_type* data; // The array to store items
 size_type used; // How much of array is used

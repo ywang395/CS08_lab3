@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Volumes/OWC Express M2/Desktop/Lab_4",
+      "program": "/Volumes/OWC Express M2/Desktop/Lab_4/build/Debug/outDebug"
+    }
+  ]
+}
